@@ -1,0 +1,62 @@
+{
+  "generated_at": "2026-10-31T15:32:07+00:00",
+  "source_file": "sample_scan.xml",
+  "hosts_scanned": 1,
+  "hosts_up": 1,
+  "open_ports": 3,
+  "severity_counts": {
+    "CRITICAL": 1,
+    "HIGH": 0,
+    "MEDIUM": 0,
+    "LOW": 0,
+    "INFO": 0
+  },
+  "hosts": [
+    {
+      "host": "demo-server.example",
+      "status": "up",
+      "addresses": [
+        "192.0.2.10"
+      ],
+      "open_ports": [
+        {
+          "port": "22",
+          "protocol": "tcp",
+          "service": "ssh",
+          "version": "OpenSSH 8.2"
+        },
+        {
+          "port": "80",
+          "protocol": "tcp",
+          "service": "http",
+          "version": "Apache httpd 2.4.49"
+        },
+        {
+          "port": "443",
+          "protocol": "tcp",
+          "service": "https",
+          "version": "nginx 1.24.0"
+        }
+      ]
+    }
+  ],
+  "findings": [
+    {
+      "host": "demo-server.example",
+      "port": "80",
+      "protocol": "tcp",
+      "service": "http",
+      "severity": "CRITICAL",
+      "title": "Potential vulnerability reported by vulners",
+      "details": "CVEs: CVE-2021-41773 | Reported CVSS: 9.8 | NSE script: vulners | Evidence: CVE-2021-41773 CVSS: 9.8 Potentially vulnerable version reported",
+      "evidence_based": true,
+      "recommendation": "Verify the affected software/version with the vendor advisory, patch if applicable, and rescan."
+    }
+  ],
+  "limitations": [
+    "This report summarizes evidence present in the supplied XML; it does not perform a scan.",
+    "A service/version or open port alone is not proof of a vulnerability.",
+    "NSE output and CVSS values may be incomplete, stale, or require manual verification.",
+    "No finding does not mean the host is secure."
+  ]
+}
