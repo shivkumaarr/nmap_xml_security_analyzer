@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<nmaprun scanner="nmap" args="nmap -sV -oX sample_scan.xml 192.0.2.10" start="0" version="7.94">
+  <host>
+    <status state="up" reason="echo-reply"/>
+    <address addr="192.0.2.10" addrtype="ipv4"/>
+    <hostnames><hostname name="demo-server.example" type="PTR"/></hostnames>
+    <ports>
+      <port protocol="tcp" portid="22">
+        <state state="open" reason="syn-ack"/>
+        <service name="ssh" product="OpenSSH" version="8.2"/>
+      </port>
+      <port protocol="tcp" portid="80">
+        <state state="open" reason="syn-ack"/>
+        <service name="http" product="Apache httpd" version="2.4.49"/>
+        <script id="vulners" output="CVE-2021-41773  CVSS: 9.8  Potentially vulnerable version reported"/>
+      </port>
+      <port protocol="tcp" portid="443">
+        <state state="open" reason="syn-ack"/>
+        <service name="https" product="nginx" version="1.24.0"/>
+        <script id="http-title" output="Welcome page"/>
+      </port>
+      <port protocol="tcp" portid="3306">
+        <state state="closed" reason="reset"/>
+        <service name="mysql"/>
+      </port>
+    </ports>
+  </host>
+  <runstats><finished exit="success" summary="Nmap done"/></runstats>
+</nmaprun>

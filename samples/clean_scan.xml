@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<nmaprun scanner="nmap" version="7.94">
+  <host>
+    <status state="up"/>
+    <address addr="192.0.2.20" addrtype="ipv4"/>
+    <ports>
+      <port protocol="tcp" portid="8080">
+        <state state="open"/>
+        <service name="http"/>
+        <script id="http-title" output="Internal dashboard"/>
+      </port>
+      <port protocol="tcp" portid="21">
+        <state state="closed"/>
+        <service name="ftp"/>
+      </port>
+    </ports>
+  </host>
+</nmaprun>
